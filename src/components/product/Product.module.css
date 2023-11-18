@@ -1,0 +1,7 @@
+.boxstyle{
+    display: flex;
+    color: blueviolet;
+}
+.img{
+    max-width: 300px;
+}
