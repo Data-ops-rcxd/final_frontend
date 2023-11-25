@@ -11,7 +11,7 @@ const Product = ({ img, title, description, price, place, user, stars, featured 
           <div className={Style.description}>{description}</div>
           <div className="buyinfo">
             <link rel="stylesheet" href={place} className="place" />
-            <h2 className="money">{price}</h2>
+            <h2 className="money">${price}</h2>
           </div>
         </div>
         <div className="userinfo">

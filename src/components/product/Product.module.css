@@ -1,6 +1,6 @@
 .boxstyle{
     display: flex;
-    color: blueviolet;
+    color: rgb(43, 183, 226);
 }
 .img{
     max-width: 300px;
