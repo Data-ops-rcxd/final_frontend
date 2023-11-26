@@ -1,0 +1,39 @@
+.fullbody {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background-color: rgb(255, 255, 255)
+}
+
+.listcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-inline: 15rem;
+}
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: azure;
+}
+.headercontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.maincont {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  background-color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

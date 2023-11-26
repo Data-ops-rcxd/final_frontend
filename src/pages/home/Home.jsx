@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Product from "../../components/Product";
 import minidb from "../../assets/miniDB.json";
 
+import Style from "./Home.module.css";
+
 const Home = () => {
   const productsPerPage = 10;
   const [products, setProducts] = useState([]);
@@ -148,138 +150,16 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className={Style.fullbody}>
       <header>
-        <div className="headercontainer">
+        <div className={Style.headercontainer}>
           <div className="title">
             <span style={{ color: "lightgreen" }}>Go</span>Explore
           </div>
         </div>
-        <button onClick={changeadmin}>Click to edit mode</button>
       </header>
-      <main>
-        {adminstatus && (
-          <div>
-            <h2>Admin Panel</h2>
-
-            <div>
-              <h2>Product Management</h2>
-              <div>
-                <label>Title:</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={newProduct.title}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>img:</label>
-                <input
-                  type="text"
-                  name="img"
-                  value={newProduct.img}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>Description:</label>
-                <textarea
-                  name="description"
-                  value={newProduct.description}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>Place:</label>
-                <textarea
-                  name="place"
-                  value={newProduct.place}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>Price:</label>
-                <input
-                  type="number"
-                  name="price"
-                  value={newProduct.price}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>Stars:</label>
-                <input
-                  type="number"
-                  name="stars"
-                  value={newProduct.stars}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div>
-                <label>User:</label>
-                <input
-                  type="text"
-                  name="user"
-                  value={newProduct.name}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <button onClick={handleAddProduct}>Add Product</button>
-            </div>
-
-            <div>
-              <h2>Product Editing</h2>
-              <select
-                onChange={(e) => setSelectedProduct(JSON.parse(e.target.value))}
-                defaultValue={""}
-              >
-                <option value="" disabled={true}>
-                  Select a product
-                </option>
-                {db.map((product) => (
-                  <option key={product.index} value={JSON.stringify(product)}>
-                    {product.title}
-                  </option>
-                ))}
-              </select>
-
-              {selectedProduct && (
-                <div>
-                  <div>
-                    <label>Title:</label>
-                    <input
-                      type="text"
-                      name="title"
-                      value={selectedProduct.title}
-                      onChange={handleSelectedProductChange}
-                    />
-                  </div>
-                  <div>
-                    <label>Description:</label>
-                    <textarea
-                      name="description"
-                      value={selectedProduct.description}
-                      onChange={handleSelectedProductChange}
-                    />
-                  </div>
-                  <div>
-                    <label>Price:</label>
-                    <input
-                      type="number"
-                      name="price"
-                      value={selectedProduct.price}
-                      onChange={handleSelectedProductChange}
-                    />
-                  </div>
-                  <button onClick={handleEditProduct}>Edit Product</button>
-                  <button onClick={handleDeleteProduct}>Delete Product</button>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-        <div className="pagination">
+      <main className={Style.maincont}>
+        <div className={Style.pagination}>
           <span onClick={handlePreviousPage}>&#9665; Previous</span>
           {Array.from({ length: totalPages }, (_, index) => (
             <span
@@ -292,10 +172,150 @@ const Home = () => {
           ))}
           <span onClick={handleNextPage}>Next &#9655;</span>
         </div>
-        <div className="listcontainer">{products}</div>
+        <div className={Style.listcontainer}>{products}</div>
+        {!adminstatus && (
+            <button onClick={changeadmin}>Click to edit mode</button>
+          )}
+          {adminstatus && (
+            <button onClick={changeadmin}>Click to exit edit mode</button>
+          )}
+        {adminstatus && (
+          <div className="editcont">
+            <div className="manage">
+              <div>
+                <h2>Admin Panel</h2>
+
+                <div>
+                  <h2>Product Management</h2>
+                  <div>
+                    <label>Title:</label>
+                    <input
+                      type="text"
+                      name="title"
+                      value={newProduct.title}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>img:</label>
+                    <input
+                      type="text"
+                      name="img"
+                      value={newProduct.img}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Description:</label>
+                    <textarea
+                      name="description"
+                      value={newProduct.description}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Place:</label>
+                    <input
+                      type="text"
+                      name="place"
+                      value={newProduct.place}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Price:</label>
+                    <input
+                      type="number"
+                      name="price"
+                      value={newProduct.price}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Stars:</label>
+                    <input
+                      type="number"
+                      name="stars"
+                      value={newProduct.stars}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <div>
+                    <label>User:</label>
+                    <input
+                      type="text"
+                      name="user"
+                      value={newProduct.name}
+                      onChange={handleNewProductChange}
+                    />
+                  </div>
+                  <button onClick={handleAddProduct}>Add Product</button>
+                </div>
+              </div>
+            </div>
+
+            <div className="edit">
+              <div>
+                <h2>Product Editing</h2>
+                <select
+                  onChange={(e) =>
+                    setSelectedProduct(JSON.parse(e.target.value))
+                  }
+                  defaultValue={""}
+                >
+                  <option value="" disabled={true}>
+                    Select a product
+                  </option>
+                  {db.map((product) => (
+                    <option key={product.index} value={JSON.stringify(product)}>
+                      {product.title}
+                    </option>
+                  ))}
+                </select>
+
+                {selectedProduct && (
+                  <div>
+                    <div>
+                      <label>Title:</label>
+                      <input
+                        type="text"
+                        name="title"
+                        value={selectedProduct.title}
+                        onChange={handleSelectedProductChange}
+                      />
+                    </div>
+                    <div>
+                      <label>Description:</label>
+                      <textarea
+                        name="description"
+                        value={selectedProduct.description}
+                        onChange={handleSelectedProductChange}
+                      />
+                    </div>
+                    <div>
+                      <label>Price:</label>
+                      <input
+                        type="number"
+                        name="price"
+                        value={selectedProduct.price}
+                        onChange={handleSelectedProductChange}
+                      />
+                    </div>
+                    <button onClick={handleEditProduct}>Edit Product</button>
+                    <button onClick={handleDeleteProduct}>
+                      Delete Product
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
-      <footer>Create by: Daniel Diaz & David Tache</footer>
-    </>
+      <footer className={Style.footer}>
+        Create by: Daniel Diaz & David Tache
+      </footer>
+    </div>
   );
 };
 

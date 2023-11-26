@@ -29,7 +29,7 @@ const Product = ({
           <h2 className={Style.title}>{title}</h2>
           <div className={Style.description}>{description}</div>
           <div className={Style.buyinfo}>
-            <h3 className={Style.money}>${price}</h3>
+            <h3 className={Style.money}>USD ${price}</h3>
             <h3 className={Style.place}>{place}</h3>
           </div>
         </div>
