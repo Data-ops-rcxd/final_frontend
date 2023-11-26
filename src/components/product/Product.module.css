@@ -1,7 +1,64 @@
-.boxstyle{
-    display: flex;
-    color: rgb(43, 183, 226);
+.boxstyle {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  width: 200px;
+  background-color: rgb(146, 228, 255);
+  margin: 1rem;
+  padding: 5px;
+  font-size: x-small;
 }
-.img{
-    max-width: 300px;
+.img {
+  max-width: 200px;
+}
+
+.imgcont {
+  position: relative; /* Set position to relative to contain absolute positioning */
+}
+
+.img {
+  width: 100%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.featured {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  padding-left: 1rem;
+  padding-right: 0.2rem;
+  margin-right: 0.2rem;
+  margin-block: 0.5rem;
+  color: red;
+}
+.productinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title {
+  margin-bottom: 0.2rem;
+}
+
+.description {
+  margin: 0.2rem;
+}
+.buyinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+}
+.money {
+  color: green;
+}
+.place {
+  color: rgb(0, 150, 209);
+}
+.userinfo {
+  display: flex;
+  border-top: 0.1rem solid black;
 }

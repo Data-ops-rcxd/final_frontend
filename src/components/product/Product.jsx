@@ -4,19 +4,23 @@ const Product = ({ img, title, description, price, place, user, stars, featured 
   return (
     <>
       <div className={Style.boxstyle}>
-        <div className="productinfo">
+        <div className={Style.productinfo}>
+          <div className={Style.imgcont}>
           <img className={Style.img} src={img} />
-          <h2 className="title">{title}</h2>
-          <h4 className="featured">{featured}</h4>
+          {featured && (
+          <h4 className={Style.featured}>Featured!</h4>)}
+          </div>
+          <h2 className={Style.title}>{title}</h2>
           <div className={Style.description}>{description}</div>
-          <div className="buyinfo">
-            <link rel="stylesheet" href={place} className="place" />
-            <h2 className="money">${price}</h2>
+          <div className={Style.buyinfo}>
+            <h3 className={Style.money}>${price}</h3>
+            <h3 className={Style.place}>{place}</h3>
           </div>
         </div>
-        <div className="userinfo">
-          <h2 className="user">{user}</h2>
+        
+        <div className={Style.userinfo}>
           {stars}
+          <h3 className="user">{user}</h3>
         </div>
       </div>
     </>
