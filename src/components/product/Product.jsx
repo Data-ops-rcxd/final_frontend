@@ -1,14 +1,30 @@
+/* eslint-disable react/prop-types */
 import Style from "./Product.module.css";
-// eslint-disable-next-line react/prop-types
-const Product = ({ img, title, description, price, place, user, stars, featured }) => {
+const Product = ({
+  img,
+  title,
+  description,
+  price,
+  place,
+  user,
+  stars,
+  featured,
+}) => {
+  const coloredStars = Array.from({ length: 5 }, (_, index) => (
+    <span
+      key={index}
+      className={`${Style.star} ${index < stars / 2 ? Style.colored : ""}`}
+    >
+      &#9733;
+    </span>
+  ));
   return (
     <>
       <div className={Style.boxstyle}>
         <div className={Style.productinfo}>
           <div className={Style.imgcont}>
-          <img className={Style.img} src={img} />
-          {featured && (
-          <h4 className={Style.featured}>Featured!</h4>)}
+            <img className={Style.img} src={img} />
+            {featured && <h4 className={Style.featured}>Featured!</h4>}
           </div>
           <h2 className={Style.title}>{title}</h2>
           <div className={Style.description}>{description}</div>
@@ -17,10 +33,10 @@ const Product = ({ img, title, description, price, place, user, stars, featured 
             <h3 className={Style.place}>{place}</h3>
           </div>
         </div>
-        
+
         <div className={Style.userinfo}>
-          {stars}
           <h3 className="user">{user}</h3>
+          {coloredStars}
         </div>
       </div>
     </>

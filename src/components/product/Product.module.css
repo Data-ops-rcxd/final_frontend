@@ -15,12 +15,13 @@
 }
 
 .imgcont {
-  position: relative; /* Set position to relative to contain absolute positioning */
+  position: relative;
+  margin: 0;
 }
 
 .img {
-  width: 100%; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
 }
 
 .featured {
@@ -29,8 +30,10 @@
   left: 0;
   background-color: rgb(255, 255, 255);
   padding-left: 1rem;
-  padding-right: 0.2rem;
-  margin-right: 0.2rem;
+  padding-block: 0.2rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding-right: 0.4rem;
   margin-block: 0.5rem;
   color: red;
 }
@@ -45,20 +48,42 @@
 
 .description {
   margin: 0.2rem;
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .buyinfo {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   background-color: white;
+  border-radius: 0.5rem;
+  padding-block: 0.5rem;
+  margin-bottom: 5px;
 }
 .money {
+  margin: 0px;
   color: green;
 }
 .place {
+  margin: 0px;
   color: rgb(0, 150, 209);
 }
 .userinfo {
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.1rem;
   border-top: 0.1rem solid black;
+}
+
+.star {
+  font-size: large;
+  color: grey; 
+  margin: 0 1px; 
+}
+.colored {
+  color: yellow; 
 }

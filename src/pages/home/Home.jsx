@@ -10,6 +10,7 @@ const Home = () => {
   const [adminstatus, setAdmin] = useState(false);
   const [newProduct, setNewProduct] = useState({
     title: "",
+    img: "",
     description: "",
     place: "",
     user: "",
@@ -79,6 +80,7 @@ const Home = () => {
     const newItem = {
       index: db.length, // Assign a unique index to the new item
       title: newProduct.title,
+      img: newProduct.img,
       description: newProduct.description,
       price: newProduct.price,
       place: newProduct.place,
@@ -92,6 +94,7 @@ const Home = () => {
 
     setNewProduct({
       title: "",
+      img: "",
       description: "",
       place: "",
       user: "",
@@ -167,6 +170,15 @@ const Home = () => {
                   type="text"
                   name="title"
                   value={newProduct.title}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div>
+                <label>img:</label>
+                <input
+                  type="text"
+                  name="img"
+                  value={newProduct.img}
                   onChange={handleNewProductChange}
                 />
               </div>
