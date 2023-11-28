@@ -1,7 +1,7 @@
 .fullbody {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background-color: rgb(255, 255, 255)
+  background-color: rgb(255, 255, 255);
 }
 
 .listcontainer {
@@ -10,17 +10,44 @@
   justify-content: center;
   padding-inline: 15rem;
 }
+
 .pagination {
   display: flex;
   justify-content: space-evenly;
   background-color: azure;
+  cursor: default;
+  font-weight: bold;
 }
+
+.pag {
+  text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+  color: rgb(40, 202, 0);
+}
+
+.pag:hover {
+  color: rgb(0, 110, 255);
+  cursor: pointer;
+}
+
+.active {
+  color: rgb(0, 214, 214);
+}
+
+.hide {
+  color: rgb(255, 255, 255);
+}
+
+.hide:hover {
+  color: rgb(0, 110, 255);
+  cursor: pointer;
+}
+
 .headercontainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: xx-large;
+  font-size: 40px;
   font-weight: bolder;
 }
 
@@ -29,6 +56,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
 .footer {
   display: flex;
   justify-content: center;

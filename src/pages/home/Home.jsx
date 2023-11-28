@@ -160,17 +160,17 @@ const Home = () => {
       </header>
       <main className={Style.maincont}>
         <div className={Style.pagination}>
-          <span onClick={handlePreviousPage}>&#9665; Previous</span>
+          <span className={Style.pag} onClick={handlePreviousPage}>&#9665; Previous</span>
           {Array.from({ length: totalPages }, (_, index) => (
             <span
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={currentPage === index + 1 ? "active" : "hide"}
+              className={`${Style.pag} ${currentPage === index + 1 ? Style.active : Style.hide}`}
             >
               {index + 1}
             </span>
           ))}
-          <span onClick={handleNextPage}>Next &#9655;</span>
+          <span className={Style.pag} onClick={handleNextPage}>Next &#9655;</span>
         </div>
         <div className={Style.listcontainer}>{products}</div>
         {!adminstatus && (

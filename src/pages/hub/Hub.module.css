@@ -1,0 +1,38 @@
+.headercontainer {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: bolder;
+  height: 100vh;
+}
+.buttoncont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.buttoncont :hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+.button {
+  font-size: xx-large;
+  background-color: greenyellow;
+  color: black;
+  border-style: dotted;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  background-color: aliceblue;
+  margin-top: 5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

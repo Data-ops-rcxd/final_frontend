@@ -73,8 +73,7 @@
 }
 .place {
   margin: 0px;
-  color: rgb(0, 150, 209);
-  text-shadow: -0.4px -0.4px 0 black, 0.4px -0.4px 0 black, -0.4px 0.4px 0 black, 0.4px 0.4px 0 black;
+  color: rgb(76, 0, 255)
 }
 .userinfo {
   display: flex;
