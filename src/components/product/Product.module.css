@@ -3,9 +3,9 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  color: rgb(255, 255, 255);
   width: 200px;
-  background-color: rgb(95, 189, 255);
+  background-color: rgb(255, 255, 255);
+  border: 0.1rem solid orange;
   margin: 1rem;
   padding: 5px;
   font-size: x-small;
@@ -16,8 +16,13 @@
 }
 
 .imgcont {
-  position: relative;
-  margin: 0;
+  display: flex;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .img {
@@ -42,12 +47,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 .title {
   margin-bottom: 0.2rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: rgb(0, 0, 0);
 }
 
 .description {
@@ -56,6 +63,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: grey;
 }
 .buyinfo {
   display: flex;
@@ -69,28 +77,33 @@
 .money {
   margin: 0px;
   color: rgb(0, 207, 0);
-  text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
 }
 .place {
   margin: 0px;
-  color: rgb(76, 0, 255)
+  color: rgb(0, 0, 0);
 }
+
 .userinfo {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  border-top: 0.1rem solid black;
+}
+.userinfotext {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
   align-items: center;
-  padding: 0.1rem;
-  border-top: 0.1rem solid black;
   color: black;
-  background-color: white;
 }
 
 .star {
   font-size: large;
-  color: grey; 
-  margin: 0 1px; 
+  color: grey;
+  margin: 0 1px;
 }
 .colored {
-  color: yellow; 
+  color: orange;
 }

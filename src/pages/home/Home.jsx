@@ -80,7 +80,7 @@ const Home = () => {
     }
 
     const newItem = {
-      index: db.length, // Assign a unique index to the new item
+      index: db.length,
       title: newProduct.title,
       img: newProduct.img,
       description: newProduct.description,
@@ -106,29 +106,31 @@ const Home = () => {
   };
 
   const handleEditProduct = () => {
-    // Find the index of the selected product in db
     const productIndex = db.findIndex(
       (product) => product.index === selectedProduct.index
     );
 
     if (productIndex !== -1) {
-      // Replace the product with the modified selectedProduct
       db[productIndex] = { ...selectedProduct };
 
-      // Trigger re-render by updating currentPage
       setCurrentPage((prev) => prev + 1);
     }
 
-    // Clear the selectedProduct state
     setSelectedProduct(null);
   };
 
-  const handleDeleteProduct = (index) => {
-    // Filter out the product with the given index
-    db = db.filter((product) => product.index !== index);
+  const handleDeleteProduct = () => {
+    if (selectedProduct) {
+      const updatedDB = db.filter(
+        (product) => product.index !== selectedProduct.index
+      );
 
-    // Trigger re-render by updating currentPage
-    setCurrentPage((prev) => prev + 1);
+      setCurrentPage((prev) => prev + 1);
+
+      setDb(updatedDB);
+
+      setSelectedProduct(null);
+    }
   };
 
   const totalPages = Math.ceil(db.length / productsPerPage);
@@ -154,37 +156,42 @@ const Home = () => {
       <header>
         <div className={Style.headercontainer}>
           <div className="title">
-            <span style={{ color: "lightgreen" }}>Go</span>Explore
+            <span style={{ color: "orange" }}>Go</span>Explore
           </div>
         </div>
       </header>
       <main className={Style.maincont}>
         <div className={Style.pagination}>
-          <span className={Style.pag} onClick={handlePreviousPage}>&#9665; Previous</span>
+          <span className={Style.pag} onClick={handlePreviousPage}>
+            &#9665; Previous
+          </span>
           {Array.from({ length: totalPages }, (_, index) => (
             <span
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={`${Style.pag} ${currentPage === index + 1 ? Style.active : Style.hide}`}
+              className={`${Style.pag} ${
+                currentPage === index + 1 ? Style.active : Style.hide
+              }`}
             >
               {index + 1}
             </span>
           ))}
-          <span className={Style.pag} onClick={handleNextPage}>Next &#9655;</span>
+          <span className={Style.pag} onClick={handleNextPage}>
+            Next &#9655;
+          </span>
         </div>
         <div className={Style.listcontainer}>{products}</div>
         {!adminstatus && (
-            <button onClick={changeadmin}>Click to edit mode</button>
-          )}
-          {adminstatus && (
-            <button onClick={changeadmin}>Click to exit edit mode</button>
-          )}
+          <button onClick={changeadmin}>Click to edit mode</button>
+        )}
         {adminstatus && (
-          <div className="editcont">
-            <div className="manage">
-              <div>
-                <h2>Admin Panel</h2>
-
+          <button onClick={changeadmin}>Click to exit edit mode</button>
+        )}
+        {adminstatus && (
+          <div className={Style.adminpanelcont}>
+            <h2 className={Style.admintitle}>Admin Panel</h2>
+            <div className={Style.adminmain}>
+              <div className="manage">
                 <div>
                   <h2>Product Management</h2>
                   <div>
@@ -252,61 +259,64 @@ const Home = () => {
                   <button onClick={handleAddProduct}>Add Product</button>
                 </div>
               </div>
-            </div>
 
-            <div className="edit">
-              <div>
-                <h2>Product Editing</h2>
-                <select
-                  onChange={(e) =>
-                    setSelectedProduct(JSON.parse(e.target.value))
-                  }
-                  defaultValue={""}
-                >
-                  <option value="" disabled={true}>
-                    Select a product
-                  </option>
-                  {db.map((product) => (
-                    <option key={product.index} value={JSON.stringify(product)}>
-                      {product.title}
+              <div className="edit">
+                <div>
+                  <h2>Product Editing</h2>
+                  <select
+                    onChange={(e) =>
+                      setSelectedProduct(JSON.parse(e.target.value))
+                    }
+                    defaultValue={""}
+                  >
+                    <option value="" disabled={true}>
+                      Select a product
                     </option>
-                  ))}
-                </select>
+                    {db.map((product) => (
+                      <option
+                        key={product.index}
+                        value={JSON.stringify(product)}
+                      >
+                        {product.title}
+                      </option>
+                    ))}
+                  </select>
 
-                {selectedProduct && (
-                  <div>
+                  {selectedProduct && (
                     <div>
-                      <label>Title:</label>
-                      <input
-                        type="text"
-                        name="title"
-                        value={selectedProduct.title}
-                        onChange={handleSelectedProductChange}
-                      />
+                      <div>
+                        <label>Title:</label>
+                        <input
+                          type="text"
+                          name="title"
+                          value={selectedProduct.title}
+                          onChange={handleSelectedProductChange}
+                        />
+                      </div>
+                      <div>
+                        <label>Description:</label>
+                        <textarea
+                          name="description"
+                          value={selectedProduct.description}
+                          onChange={handleSelectedProductChange}
+                        />
+                      </div>
+                      <div>
+                        <label>Price:</label>
+                        <input
+                          type="number"
+                          name="price"
+                          value={selectedProduct.price}
+                          onChange={handleSelectedProductChange}
+                        />
+                      </div>
+                      <button onClick={handleEditProduct}>Edit Product</button>
+                      <button onClick={handleDeleteProduct}>
+                        Delete Product
+                      </button>
                     </div>
-                    <div>
-                      <label>Description:</label>
-                      <textarea
-                        name="description"
-                        value={selectedProduct.description}
-                        onChange={handleSelectedProductChange}
-                      />
-                    </div>
-                    <div>
-                      <label>Price:</label>
-                      <input
-                        type="number"
-                        name="price"
-                        value={selectedProduct.price}
-                        onChange={handleSelectedProductChange}
-                      />
-                    </div>
-                    <button onClick={handleEditProduct}>Edit Product</button>
-                    <button onClick={handleDeleteProduct}>
-                      Delete Product
-                    </button>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>

@@ -14,14 +14,12 @@
 .pagination {
   display: flex;
   justify-content: space-evenly;
-  background-color: azure;
   cursor: default;
   font-weight: bold;
 }
 
 .pag {
-  text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
-  color: rgb(40, 202, 0);
+  color: orange;
 }
 
 .pag:hover {
@@ -30,15 +28,15 @@
 }
 
 .active {
-  color: rgb(0, 214, 214);
+  color: orange;
 }
 
 .hide {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .hide:hover {
-  color: rgb(0, 110, 255);
+  color: rgb(0, 60, 255);
   cursor: pointer;
 }
 
@@ -64,4 +62,26 @@
   font-size: large;
   background-color: aliceblue;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.adminpanelcont {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.admintitle{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.adminmain{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
 }

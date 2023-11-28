@@ -16,13 +16,12 @@
   text-decoration: none;
 }
 .buttoncont :hover {
-  background-color: green;
+  background-color: orange;
   cursor: pointer;
 }
 
 .button {
   font-size: xx-large;
-  background-color: greenyellow;
   color: black;
   border-style: dotted;
 }

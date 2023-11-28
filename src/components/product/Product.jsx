@@ -22,21 +22,28 @@ const Product = ({
     <>
       <div className={Style.boxstyle}>
         <div className={Style.productinfo}>
+          
           <div className={Style.imgcont}>
             <img className={Style.img} src={img} />
             {featured && <h4 className={Style.featured}>Featured!</h4>}
           </div>
-          <h2 className={Style.title}>{title}</h2>
-          <div className={Style.description}>{description}</div>
-          <div className={Style.buyinfo}>
-            <h3 className={Style.money}>USD ${price}</h3>
-            <h3 className={Style.place}>{place}</h3>
+
+          <div>
+            <h2 className={Style.title}>{title}</h2>
+            <div className={Style.description}>{description}</div>
+            <div className={Style.buyinfo}>
+              <h3 className={Style.money}>USD ${price}</h3>
+              <h3 className={Style.place}>{place}</h3>
+            </div>
           </div>
         </div>
 
         <div className={Style.userinfo}>
-          <h3 className="user">{user}</h3>
-          {coloredStars}
+          Vendor info
+          <div className={Style.userinfotext}>
+            <h3 className="user">{user}</h3>
+            {coloredStars}
+          </div>
         </div>
       </div>
     </>

@@ -7,7 +7,7 @@ const Error = () => {
     <>
       <div className={Style.headercontainer}>
         <div className="title">
-          <span style={{ color: "lightgreen" }}>Go</span>Explore
+          <span style={{ color: "orange" }}>Go</span>Explore
         </div>
         <div className={Style.errorinfo}>
           Error 404
