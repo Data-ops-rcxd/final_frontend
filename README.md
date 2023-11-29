@@ -13,3 +13,5 @@ Pagina principal con los productos (articulos)
 Pagina del carrito
 
 Pagina admin
+
+Enlace GoExplore: https://data-ops-rcxd.github.io/final_frontend/
