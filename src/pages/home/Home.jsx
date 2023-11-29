@@ -183,12 +183,15 @@ const Home = () => {
           </span>
         </div>
         <div className={Style.listcontainer}>{products}</div>
+        <div className={Style.changeadmincont}>
+
         {!adminstatus && (
-          <button onClick={changeadmin}>Click to edit mode</button>
+          <button className={Style.changeadmin} onClick={changeadmin}>Click to edit mode</button>
         )}
         {adminstatus && (
-          <button onClick={changeadmin}>Click to exit edit mode</button>
+          <button className={Style.changeadmin} onClick={changeadmin}>Click to exit edit mode</button>
         )}
+        </div>
         {adminstatus && (
           <div className={Style.adminpanelcont}>
             <h2 className={Style.admintitle}>Admin Panel</h2>

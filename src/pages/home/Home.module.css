@@ -1,7 +1,7 @@
 .fullbody {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(243, 243, 243);
 }
 
 .listcontainer {
@@ -16,6 +16,8 @@
   justify-content: space-evenly;
   cursor: default;
   font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .pag {
@@ -45,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bolder;
 }
 
@@ -60,7 +62,7 @@
   justify-content: center;
   align-items: center;
   font-size: large;
-  background-color: aliceblue;
+  background-color: orange;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -70,6 +72,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  padding: 2rem;
 }
 
 .admintitle {
@@ -101,10 +104,30 @@
   justify-content: space-evenly;
 }
 
-.editproductbutton{
+.editproductbutton {
   background-color: orange;
   color: white;
   border: none;
   border-radius: 0.5rem;
   height: 2rem;
+}
+
+.changeadmincont {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.changeadmin {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: orange;
+  color: white;
+  margin-block: 2rem;
+  height: 2rem;
+  font-size: medium;
+}
+
+.changeadmin:hover {
+  cursor: pointer;
 }
