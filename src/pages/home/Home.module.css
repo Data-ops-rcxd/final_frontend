@@ -18,7 +18,15 @@
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  background-color: rgb(226, 226, 226);
+  border-radius: 2rem;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 5px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
+
 
 .pag {
   color: orange;
@@ -64,6 +72,9 @@
   font-size: large;
   background-color: orange;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 2rem;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .adminpanelcont {
