@@ -152,9 +152,6 @@ const Home = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-  console.log("db:", db);
-  console.log("totalPages:", totalPages);
-  console.log("currentPage:", currentPage);
 
   return (
     <div className={Style.fullbody}>
