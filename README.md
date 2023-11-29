@@ -15,3 +15,5 @@ Pagina del carrito
 Pagina admin
 
 Enlace GoExplore: https://data-ops-rcxd.github.io/final_frontend/
+
+Presented by: David Alejandro Tache Ardila and Daniel Arturo Díaz Mejía
