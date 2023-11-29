@@ -19,8 +19,9 @@ const Home = () => {
     stars: 0,
     price: 0,
   });
-  const [selectedProduct, setSelectedProduct] = useState(null);
   let [db, setDb] = useState(JSON.parse(JSON.stringify(minidb)));
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [newItemIndex, setNewItemIndex] = useState(db.length);
 
   useEffect(() => {
     const startIndex = (currentPage - 1) * productsPerPage;
@@ -80,7 +81,7 @@ const Home = () => {
     }
 
     const newItem = {
-      index: db.length,
+      index: newItemIndex,
       title: newProduct.title,
       img: newProduct.img,
       description: newProduct.description,
@@ -91,8 +92,8 @@ const Home = () => {
       featured: false,
     };
 
-    const updatedDB = [...db, newItem];
-    setDb(updatedDB);
+    setDb((prevDb) => [...prevDb, newItem]);
+    setNewItemIndex((prevIndex) => prevIndex + 1);
 
     setNewProduct({
       title: "",
@@ -113,7 +114,8 @@ const Home = () => {
     if (productIndex !== -1) {
       db[productIndex] = { ...selectedProduct };
 
-      setCurrentPage((prev) => prev + 1);
+      setCurrentPage((prev) => prev);
+      setDb(db);
     }
 
     setSelectedProduct(null);
@@ -125,7 +127,7 @@ const Home = () => {
         (product) => product.index !== selectedProduct.index
       );
 
-      setCurrentPage((prev) => prev + 1);
+      setCurrentPage((prev) => prev);
 
       setDb(updatedDB);
 
@@ -150,6 +152,9 @@ const Home = () => {
       setCurrentPage(currentPage + 1);
     }
   };
+  console.log("db:", db);
+  console.log("totalPages:", totalPages);
+  console.log("currentPage:", currentPage);
 
   return (
     <div className={Style.fullbody}>
@@ -194,7 +199,7 @@ const Home = () => {
               <div className="manage">
                 <div>
                   <h2>Product Management</h2>
-                  <div>
+                  <div className={Style.label}>
                     <label>Title:</label>
                     <input
                       type="text"
@@ -203,7 +208,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>img:</label>
                     <input
                       type="text"
@@ -212,7 +217,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>Description:</label>
                     <textarea
                       name="description"
@@ -220,7 +225,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>Place:</label>
                     <input
                       type="text"
@@ -229,7 +234,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>Price:</label>
                     <input
                       type="number"
@@ -238,7 +243,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>Stars:</label>
                     <input
                       type="number"
@@ -247,7 +252,7 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <div>
+                  <div className={Style.label}>
                     <label>User:</label>
                     <input
                       type="text"
@@ -256,7 +261,14 @@ const Home = () => {
                       onChange={handleNewProductChange}
                     />
                   </div>
-                  <button onClick={handleAddProduct}>Add Product</button>
+                  <div className={Style.editbuttons}>
+                    <button
+                      className={Style.editproductbutton}
+                      onClick={handleAddProduct}
+                    >
+                      Add Product
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -284,7 +296,7 @@ const Home = () => {
 
                   {selectedProduct && (
                     <div>
-                      <div>
+                      <div className={Style.label}>
                         <label>Title:</label>
                         <input
                           type="text"
@@ -293,7 +305,7 @@ const Home = () => {
                           onChange={handleSelectedProductChange}
                         />
                       </div>
-                      <div>
+                      <div className={Style.label}>
                         <label>Description:</label>
                         <textarea
                           name="description"
@@ -301,7 +313,7 @@ const Home = () => {
                           onChange={handleSelectedProductChange}
                         />
                       </div>
-                      <div>
+                      <div className={Style.label}>
                         <label>Price:</label>
                         <input
                           type="number"
@@ -310,10 +322,20 @@ const Home = () => {
                           onChange={handleSelectedProductChange}
                         />
                       </div>
-                      <button onClick={handleEditProduct}>Edit Product</button>
-                      <button onClick={handleDeleteProduct}>
-                        Delete Product
-                      </button>
+                      <div className={Style.editbuttons}>
+                        <button
+                          className={Style.editproductbutton}
+                          onClick={handleEditProduct}
+                        >
+                          Edit Product
+                        </button>
+                        <button
+                          className={Style.editproductbutton}
+                          onClick={handleDeleteProduct}
+                        >
+                          Delete Product
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
